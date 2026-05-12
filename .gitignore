@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.env
+venv/
+.ipynb_checkpoints/
+
+# Model files
+*.pkl
+*.pickle
+
+# Jupyter
+*.ipynb_checkpoints
+
+# OS files
+.DS_Store
+Thumbs.db

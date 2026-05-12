@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+    <title>Gym Churn Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Gym Churn Predictor</h1>
+
+    <form action="/predict" method="POST">
+
+        <label>Average Workout Duration (Minutes)</label>
+        <input type="number" step="0.1" name="Avg_Workout_Duration_Min" required>
+
+        <label>Membership Duration (Days)</label>
+        <input type="number" step="0.1" name="Membership_Duration_Days" required>
+
+        <label>Gender</label>
+        <select name="Gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label>Membership Type</label>
+        <select name="Membership_Type" required>
+            <option value="Basic">Basic</option>
+            <option value="Standard">Standard</option>
+            <option value="Premium">Premium</option>
+        </select>
+
+        <label>Favorite Exercise</label>
+        <select name="Favorite_Exercise" required>
+            <option value="Cardio">Cardio</option>
+            <option value="Yoga">Yoga</option>
+            <option value="Strength">Strength</option>
+            <option value="HIIT">HIIT</option>
+        </select>
+
+        <label>Joining Season</label>
+        <select name="Joining_Season" required>
+            <option value="Spring">Spring</option>
+            <option value="Summer">Summer</option>
+            <option value="Autumn">Autumn</option>
+            <option value="Winter">Winter</option>
+        </select>
+
+        <label>Age Group</label>
+        <select name="Age_Group" required>
+            <option value="18-25">18-25</option>
+            <option value="26-35">26-35</option>
+            <option value="36-45">36-45</option>
+            <option value="46+">46+</option>
+        </select>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+    <div class="result">
+        <h2>{{ prediction_text }}</h2>
+        <p>Churn Probability: {{ probability }}%</p>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
